@@ -47,7 +47,6 @@
     + [**비동기식 프로그래밍 예시**](#-----------------)
     + [멀티스레딩과 비동기식 프로그래밍을 동시에?](#-----------------------)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # PortScanner
 
