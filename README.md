@@ -5,7 +5,7 @@
 - [Flow chart](#flow-chart)
 - [Reference Docs](#reference-docs)
 - [소켓의 모든 것](#소켓의-모든-것)
-- [TCP / IP 프로토콜의 모든 것](#TCP-/-IP-프로토콜의-모든-것)
+- [TCP/IP 프로토콜의 모든 것](#TCP/IP-프로토콜의-모든-것)
 - [멀티스레딩과 비동기식프로그래밍의 모든 것](#멀티스레딩과-비동기식프로그래밍의-모든-것)
 
 #
@@ -204,7 +204,7 @@ if __name__ == "__main__":
 
 ```
 
-# TCP / IP 프로토콜의 모든 것
+# TCP/IP 프로토콜의 모든 것
 
 **TCP/IP는 "Transmission Control Protocol/Internet Protocol"의 약자**
 
