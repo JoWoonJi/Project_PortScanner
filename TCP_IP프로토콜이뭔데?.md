@@ -149,7 +149,9 @@ syn_scan('192.168.1.100', '192.168.1.101', 80)
 **`scapy`**는 강력한 패킷 조작 도구로, 네트워크 프로토콜을 다루고, 패킷을 생성, 전송, 분석하는 등의 작업을 수행
 
 pip install scapy 필요.
-'''python
+
+```python
+
 from scapy.all import *
 
 # 대상 호스트 및 포트 설정
@@ -188,4 +190,5 @@ elif syn_ack.haslayer(TCP):
         print("Unexpected flags in received packet:", syn_ack[TCP].flags)
 else:
     print("Received unexpected packet type")
-'''
+
+```
