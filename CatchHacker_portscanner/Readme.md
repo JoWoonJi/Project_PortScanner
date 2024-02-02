@@ -1,6 +1,4 @@
 # Service Scanner
-<img src=""  width="600" height="400"/>
-
 
 This Scanner use Only TCP Open Scan and Detected Service in Port
 
