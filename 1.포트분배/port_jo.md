@@ -128,7 +128,7 @@ port123_ntp(target_host)
 
 ![123ntp_success.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/img/123ntp_success.jpg)
 
-포트가 열려있는 것을 확인하고 직접 시간 정보와 여러 정보를 받아와 띄우기
+포트가 열려있는 것을 확인하고 직접 시간 정보와 여러 정보를 받아와 띄우기 성공공
 
 ---
 
@@ -220,7 +220,7 @@ uuid5(namespace, name): uuid3()과 유사하지만, SHA-1 해시를 사용하여
 
 ![445smb_success.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/img/445smb_success.jpg)
 
-포트가 열려있음을 확인.
+포트가 열려있음을 확인하고 smb 버전정보값 받아오기 성공공
 
 ```python
 SMB 프로토콜을 사용할 때 Banner Grabbing을 수행하는 것은 HTTP나 FTP와 같은 텍스트 기반 프로토콜과는 다르다. SMB는 복잡한 이진 프로토콜이기 때문에, 연결 초기에 교환되는 메시지에서 직접적으로 "배너" 정보를 얻는 것은 표준적인 접근 방식이 아니고,
@@ -460,4 +460,4 @@ target_host = "127.0.0.1"
 port3306_mysql(target_host)
 ```
 ![3309mysql_success](https://github.com/JoWoonJi/PortScanner/blob/main/img/3309mysql_success.jpg)
-포트와 연결하고 서버버전과 스레드id 서버 캐퍼 정보를 가져옴
+포트와 연결하고 서버 버전과 스레드id 서버 캐퍼 정보를 가져오는데 성공
