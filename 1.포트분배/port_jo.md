@@ -125,7 +125,7 @@ target_host = 'pool.ntp.org' #"time.windows.com" 'pool.ntp.org' # 로컬은 시�
 port123_ntp(target_host)
 ```
 
-![123ntp_success.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/a4983dbd-4924-435d-b0f1-3ca8d60a02fa/bd6d1f33-96fb-4776-827d-12f3eb159721/123ntp_success.jpg)
+![123ntp_success.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/img/123ntp_success.jpg)
 
 포트가 열려있는 것을 확인하고 직접 시간 정보와 여러 정보를 받아와 띄우기
 
@@ -217,7 +217,7 @@ uuid4(): 무작위로 생성된 UUID입니다. 이 방식은 가장 일반적으
 uuid5(namespace, name): uuid3()과 유사하지만, SHA-1 해시를 사용하여 UUID를 생성합니다.
 ```
 
-![445smb_success.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/a4983dbd-4924-435d-b0f1-3ca8d60a02fa/6d481d3c-6500-416f-9fd6-8f0abbca4d12/445smb_success.jpg)
+![445smb_success.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/img/445smb_success.jpg)
 
 포트가 열려있음을 확인.
 
@@ -358,7 +358,7 @@ ports = [902, 912]
 port902_vmware_soap(target_host, ports)
 ```
 
-![902_912_success.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/a4983dbd-4924-435d-b0f1-3ca8d60a02fa/2e0d7e99-d5ed-4d87-bc47-59ff67b1317b/902_912_success.jpg)
+![902_912_success.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/img/902_912_success.jpg)
 
 902, 912 포트스캔으로 열려있음을 확인하고 vmware 버전정보와 프로토콜들을 받아오는데 성공
 
@@ -458,5 +458,5 @@ target_host = "127.0.0.1"
 
 port3306_mysql(target_host)
 ```
-
+![3309mysql_success](https://github.com/JoWoonJi/PortScanner/blob/main/img/3309mysql_success.jpg)
 포트와 연결하고 서버버전과 스레드id 서버 캐퍼 정보를 가져옴
