@@ -16,3 +16,5 @@
 멀티스레딩 threading 모듈 성공
 
 ![멀티스레딩_threading성공.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/img/%EB%A9%80%ED%8B%B0%EC%8A%A4%EB%A0%88%EB%94%A9_threading%EC%84%B1%EA%B3%B5.jpg)
+
+2월 7일 다른분들꺼 통합, 메인과 옵션등 기타 모듈 구현
