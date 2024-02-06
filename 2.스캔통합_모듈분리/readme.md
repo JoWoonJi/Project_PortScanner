@@ -6,7 +6,7 @@
     
 2/6 다른분들꺼까지 통합하고 멀티스레딩 성공해야함
 
-### 중복출력, 재접근 트러블슈팅 완료 / 모듈분리해서 멀티스레딩 구현까지는 성공 
+### 출력순서, 중복출력, 재접근 트러블슈팅 완료 / 모듈분리해서 멀티스레딩 구현까지는 성공 
 멀티스레딩 futures 모듈 성공
 
 ![멀티스레딩_futures성공.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/img/%EB%A9%80%ED%8B%B0%EC%8A%A4%EB%A0%88%EB%94%A9_futures%EC%84%B1%EA%B3%B5.jpg)
