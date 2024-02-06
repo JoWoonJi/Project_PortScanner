@@ -11,7 +11,7 @@ def port123_ntp(host, timeout=1):
     sock.settimeout(timeout)
     response_data = {}
 
-    # NTP 서버로 메시지 전송 및 응답 처리
+    
     sock.sendto(message.encode('utf-8'), (host, port))
     response, _ = sock.recvfrom(1024)
     sock.close()
@@ -46,34 +46,32 @@ def port445_smb(host, timeout=1):
 import socket
 
 def port902_vmware_soap(host, port=902, timeout=1):
-    response_data = {'port': port, 'status': 'closed'}  # 초기 상태 설정
+    response_data = {'port': port, 'status': 'closed'} 
 
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(timeout)
         sock.connect((host, port))
 
-        # SOAP 요청 본문 준비
         soap_request = f"""POST /sdk HTTP/1.1\r
-Host: {host}:{port}\r
-Content-Type: text/xml; charset=utf-8\r
-Content-Length: {{length}}\r
-SOAPAction: "urn:internalvim25/5.5"\r
-\r
-<?xml version="1.0" encoding="utf-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vim25="urn:vim25">
-<soapenv:Header/>
-<soapenv:Body>
-    <vim25:RetrieveServiceContent>
-    <vim25:_this type="ServiceInstance">ServiceInstance</vim25:_this>
-    </vim25:RetrieveServiceContent>
-</soapenv:Body>
-</soapenv:Envelope>"""
+                            Host: {host}:{port}\r
+                            Content-Type: text/xml; charset=utf-8\r
+                            Content-Length: {{length}}\r
+                            SOAPAction: "urn:internalvim25/5.5"\r
+                            \r
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:vim25="urn:vim25">
+                            <soapenv:Header/>
+                            <soapenv:Body>
+                                <vim25:RetrieveServiceContent>
+                                <vim25:_this type="ServiceInstance">ServiceInstance</vim25:_this>
+                                </vim25:RetrieveServiceContent>
+                            </soapenv:Body>
+                            </soapenv:Envelope>"""
 
-        body = soap_request.format(length=len(soap_request) - 2)  # '{{length}}' 자리에 실제 길이를 넣습니다. -2는 '{{}}' 문자 길이 조정
+        body = soap_request.format(length=len(soap_request) - 2)  # '{{length}}' 자리에 실제 길이, -2는 '{{}}' 문자 길이 조정
         sock.sendall(body.encode('utf-8'))
 
-        # 서비스로부터 응답 받기
         response = sock.recv(4096)
         sock.close()
 
