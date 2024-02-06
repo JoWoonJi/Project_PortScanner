@@ -12,6 +12,8 @@ scan.py에서도 902_vmware함수에서 딕셔너리 값을 넘겨주지 않는�
 
 다시 붙잡고 하다보니 결국 해결
 
+#
+
 플라스크 웹서버 실행
 
 ![app_code.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/flask_portscanner/img/app_code.jpg)
