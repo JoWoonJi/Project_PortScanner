@@ -1,0 +1,25 @@
+<!-- results.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='results_styles.css') }}">
+</head>
+<body>
+    <h1>Scan Results for {{ host }}</h1>
+    {% for result in results %}
+        <div>
+            <strong>Port {{ result.port }}:</strong> Status: {{ result.state }}
+            {% for key, value in result.items() %}
+                {% if key not in ['port', 'state'] %}
+                    , {{ key | capitalize | replace('_', ' ') }}: {{ value }}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <a href="/">Back to Scan</a>
+</body>
+</html>
