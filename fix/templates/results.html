@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan Results</title>
+</head>
+<body>
+    <h1>Scan Results for {{ host }}</h1>
+    {% for result in results %}
+        <div>
+            <strong>Port {{ result.port }}:</strong> Status: {{ result.state }}
+            {% for key, value in result.items() %}
+                {% if key not in ['port', 'state'] %}
+                    , {{ key | capitalize | replace('_', ' ') }}: {{ value }}
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <a href="/">Back to Scan</a>
+</body>
+</html>
