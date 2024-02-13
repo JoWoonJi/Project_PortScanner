@@ -44,7 +44,7 @@ PySocks
 pyspnego
 python-dateutil
 python-nmap
-pywin32
+#pywin32
 redis
 requests
 ROPGadget
@@ -60,4 +60,4 @@ tqdm
 unicorn
 urllib3
 waitress
-Werkzeug
+Werkzeug
