@@ -2,7 +2,7 @@
 
 1. **웹서비스로 배포**
 
-https://hackerjobjo.run.goorm.io/ 접속. 검색하고 싶은 주소 입력
+https://hackerjobjo.run.goorm.io/ 접속. 스캔하고 싶은 주소 입력
 
 - **211.229.25.137**에 테스트용 환경 구축
 
