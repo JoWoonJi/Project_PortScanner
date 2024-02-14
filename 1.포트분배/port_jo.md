@@ -1,5 +1,6 @@
 # 123,445,902/912,3306port by jo
 개념부터 구현까지 2024/2/2~2024/2/4
+2/13 배너 못받아오는거 수정 53, 389, 443
 
 # 목차
 
@@ -7,6 +8,9 @@
 - [445번 SMB](#445번-smb)
 - [902번,912번 vmware/SOAP 프로토콜](#902번912번-vmwaresoap-프로토콜)
 - [3306번 mysql](#3306번-mysql)
+- [53 DNS](#53-dns)
+- [389 LDAP](#389-ldap)
+- [443 HTTPS](#443-https)
 #
 
 # 123번 NTP
@@ -461,3 +465,89 @@ port3306_mysql(target_host)
 ```
 ![3309mysql_success](https://github.com/JoWoonJi/PortScanner/blob/main/img/3309mysql_success.jpg)
 포트와 연결하고 서버 버전과 스레드id 서버 캐퍼 정보를 가져오는데 성공
+
+
+# 53 DNS
+```python
+def scan_dns_port(host, timeout=5):
+    response_data = {'service': 'DNS', 'host': host, 'port': 53, 'state': 'closed', 'banner': None}
+
+    try:        
+        query = dns.message.make_query('version.bind', dns.rdatatype.TXT, dns.rdataclass.CHAOS)
+
+        response = dns.query.udp(query, host, timeout=timeout)
+
+        for rrset in response.answer:
+            for txt in rrset:
+                response_data['state'] = 'open'
+                response_data['banner'] = txt.strings[0].decode('utf-8')
+                break
+
+    except (dns.exception.Timeout, dns.query.BadResponse, dns.query.UnexpectedSource) as e:
+        response_data['error'] = f'DNS Query Error: {e}'
+    except Exception as e:
+        response_data['error'] = f'Error: {e}'
+
+    return response_data
+```
+
+# 389 LDAP
+```python
+def scan_ldap_port(host, port=389, timeout=1):
+    response_data = {
+        'service': 'LDAP',
+        'host': host,
+        'port': port,
+        'state': 'closed',
+    }
+
+    server = Server(host, port=port, get_info=ALL, connect_timeout=timeout)
+
+    try:
+        with Connection(server, auto_bind=True) as conn:
+            response_data['state'] = 'open'
+
+            if server.info:
+                ldap_versions = server.info.supported_ldap_versions
+                if ldap_versions:
+                    response_data['supported_ldap_versions'] = ldap_versions
+
+                naming_contexts = server.info.naming_contexts
+                if naming_contexts:
+                    response_data['naming_contexts'] = naming_contexts
+
+                Supported_SASL_mechanisms = server.info.supported_sasl_mechanisms
+                if Supported_SASL_mechanisms:
+                    response_data['Supported SASL mechanisms'] = Supported_SASL_mechanisms
+
+    except Exception as e:
+        response_data['error'] = f'LDAP Error: {e}'
+
+    return response_data
+```
+
+# 443 HTTPS
+```python
+def scan_https_port(host, port=443, timeout=5):
+    response_data = {'service': 'HTTPS', 'host': host, 'port': port, 'state': 'open', 'banner': None}
+    urllib3.disable_warnings(InsecureRequestWarning)
+    url = f"https://{host}:{port}"
+
+    try:
+        response = requests.get(url, timeout=timeout, verify=False)
+
+        server_header = response.headers.get('Server', None)
+        if server_header:
+            response_data['banner'] = server_header
+        else:
+            response_data['error'] = 'Server header not found'
+    except requests.exceptions.Timeout:
+        response_data['error'] = 'Connection timed out'
+    except requests.exceptions.SSLError as e:
+        response_data['error'] = 'SSL Error: ' + str(e)
+    except requests.exceptions.RequestException as e:
+        response_data['error'] = 'Request Error: ' + str(e)
+
+    return response_data
+```
+
