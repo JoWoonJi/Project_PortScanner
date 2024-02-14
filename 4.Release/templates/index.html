@@ -1,0 +1,21 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해커잡조 Port Scanner</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>해커잡조 Port Scanner</h1>
+        <form action="/" method="post">
+            <label for="host">Enter Hostname or IP:</label>
+            <input type="text" id="host" name="host">
+            <button type="submit">Scan</button>
+        </form>
+    </div>
+</body>
+</html>
