@@ -22,7 +22,7 @@ app.py 열어서 직접 실행하거나 python app.py 명령어로 구동
 
 ![final_front.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/4.Release/final_front.jpg)
 
-![final_result3.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/4.Release/final_result3.jpg)
+![final_result4.jpg](https://github.com/JoWoonJi/PortScanner/blob/main/img/develop/final_result4.jpg)
 
 <aside>
 💡 허용되지 않는 주소로의 포트스캐닝은 불법적인 해킹으로 간주될 수 있으므로 각별한 주의를 요합니다.
